@@ -32,7 +32,6 @@ public class Client {
 
     //Getters
 
-
     public Long getId() {
         return id;
     }
