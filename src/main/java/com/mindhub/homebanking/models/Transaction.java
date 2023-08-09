@@ -22,7 +22,7 @@ public class Transaction {
 
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "account_id")
-    private Account ownerTransaction;
+    private Account account;
 
     //Constructor
 
@@ -35,6 +35,7 @@ public class Transaction {
         this.amount = amount;
         this.description = description;
         this.date = date;
+       // this.account = account;
     }
 
     public Long getId() {
@@ -58,8 +59,8 @@ public class Transaction {
     }
 
     @JsonIgnore
-    public Account getOwnerTransaction() {
-        return ownerTransaction;
+    public Account getAccount() {
+        return account;
     }
 
     //Setters
@@ -81,7 +82,7 @@ public class Transaction {
         this.date = date;
     }
 
-    public void setOwnerTransaction(Account ownerTransaction) {
-        this.ownerTransaction = ownerTransaction;
+    public void setAccount(Account account) {
+        this.account = account;
     }
 }

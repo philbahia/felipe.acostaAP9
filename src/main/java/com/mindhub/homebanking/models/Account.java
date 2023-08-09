@@ -17,7 +17,7 @@ public class Account {
     @GenericGenerator(name="native",strategy = "native")
     private Long id;
 
-    @OneToMany(mappedBy = "ownerTransaction", fetch = FetchType.EAGER)
+    @OneToMany(mappedBy = "account", fetch = FetchType.EAGER)
     Set<Transaction> transactions= new HashSet<>();
 
 
@@ -94,7 +94,7 @@ public class Account {
     }
 
     public void addTransaction(Transaction transaction){
-        transaction.setOwnerTransaction(this);
+        transaction.setAccount(this);
         transactions.add(transaction);
     }
 
