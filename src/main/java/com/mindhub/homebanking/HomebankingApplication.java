@@ -1,11 +1,9 @@
 package com.mindhub.homebanking;
 
-import com.mindhub.homebanking.models.Account;
-import com.mindhub.homebanking.models.Client;
-import com.mindhub.homebanking.models.Transaction;
-import com.mindhub.homebanking.models.TransactionType;
+import com.mindhub.homebanking.models.*;
 import com.mindhub.homebanking.repositories.AccountRepository;
 import com.mindhub.homebanking.repositories.ClientRepository;
+import com.mindhub.homebanking.repositories.LoanRepository;
 import com.mindhub.homebanking.repositories.TransactionRepository;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -14,6 +12,8 @@ import org.springframework.context.annotation.Bean;
 
 
 import java.time.LocalDate;
+import java.util.Arrays;
+import java.util.List;
 
 
 
@@ -27,7 +27,10 @@ public class HomebankingApplication {
 
     }
 	@Bean
-	public CommandLineRunner initData(ClientRepository clientRepository, AccountRepository accountRepository, TransactionRepository transactionRepository){
+	public CommandLineRunner initData(ClientRepository clientRepository,
+                                      AccountRepository accountRepository,
+                                      TransactionRepository transactionRepository,
+                                      LoanRepository loanRepository){
 		return (args) -> {
 
 			Client client = new Client("Melba","Morel","morel@gmail.com");
@@ -64,6 +67,16 @@ public class HomebankingApplication {
             Account account2 = new Account("VIN012", LocalDate.now().plusDays(1),71500);
             client1.addAccount(account2);
             accountRepository.save(account2);
+
+                List<Integer> payments =Arrays.asList (60,40,24,12);
+                List<Integer> payments2 = Arrays.asList(48,24,12);
+                List<Integer> payments3 = Arrays.asList(80,60,48,24,12);
+                Loan loan1= new Loan("hipotecario",500000.0,payments);
+                Loan loan2= new Loan("personal", 200000.0,payments2);
+                Loan loan3= new Loan("automotriz", 100000.0,payments3);
+                loanRepository.save(loan1);
+                loanRepository.save(loan2);
+                loanRepository.save(loan3);
 
 
         };
