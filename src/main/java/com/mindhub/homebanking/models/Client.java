@@ -19,7 +19,7 @@ public class Client {
     private Long id;
 
     @OneToMany(mappedBy = "ownerAccount", fetch = FetchType.EAGER)
-    Set<Account> accounts = new HashSet<>();
+    private Set<Account> accounts = new HashSet<>();
 
     @OneToMany(mappedBy = "client", fetch = FetchType.EAGER)
     private Set<ClientLoan> clientLoans = new HashSet<>();

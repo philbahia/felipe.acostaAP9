@@ -24,7 +24,7 @@ public class TransactionController {
 
 
         @Autowired
-        TransactionRepository transactionRepository;
+        private TransactionRepository transactionRepository;
 
 
         @RequestMapping("/transactions")

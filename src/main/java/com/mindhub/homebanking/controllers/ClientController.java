@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 import java.util.Optional;
-import java.util.stream.Collectors;
+
 
 import static java.util.stream.Collectors.toList;
 
@@ -19,7 +19,7 @@ import static java.util.stream.Collectors.toList;
 public class ClientController {
 
     @Autowired
-    ClientRepository clientRepository;
+    private ClientRepository clientRepository;
 
     @RequestMapping("/clients")
     public List<ClientDTO> getClients() {
@@ -29,7 +29,9 @@ public class ClientController {
     @RequestMapping("/clients/{id}")
     public ClientDTO getClientById(@PathVariable Long id){
         Optional<Client> client = clientRepository.findById(id);
+
         return new ClientDTO(client.get());
+
     }
 }
 

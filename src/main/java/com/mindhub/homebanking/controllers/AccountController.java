@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 import java.util.Optional;
-import java.util.stream.Collectors;
+
 
 import static java.util.stream.Collectors.toList;
 
@@ -19,7 +19,7 @@ import static java.util.stream.Collectors.toList;
 public class AccountController {
 
     @Autowired
-    AccountRepository accountRepository;
+    private AccountRepository accountRepository;
 
     @RequestMapping("/accounts")
     public List<AccountDTO> getAccounts(){

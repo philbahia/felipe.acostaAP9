@@ -18,7 +18,7 @@ public class Account {
     private Long id;
 
     @OneToMany(mappedBy = "account", fetch = FetchType.EAGER)
-    Set<Transaction> transactions= new HashSet<>();
+    private Set<Transaction> transactions= new HashSet<>();
 
 
     private String number;
