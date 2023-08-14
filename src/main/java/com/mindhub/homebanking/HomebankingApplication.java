@@ -28,7 +28,8 @@ public class HomebankingApplication {
                                       AccountRepository accountRepository,
                                       TransactionRepository transactionRepository,
                                       LoanRepository loanRepository,
-                                      ClientLoanRepository clientLoanRepository){
+                                      ClientLoanRepository clientLoanRepository,
+                                      CardRepository cardRepository){
 		return (args) -> {
 
 			Client client = new Client("Melba","Morel","morel@gmail.com");
@@ -86,6 +87,24 @@ public class HomebankingApplication {
             clientLoanRepository.save(clientLoan2);
             clientLoanRepository.save(clientLoan3);
             clientLoanRepository.save(clientLoan4);
+
+            Card card1 = new Card(client.toString(),CardType.DEBIT, CardColor.GOLD,
+                    "0989 8938 3328 3383",434,LocalDate.now(),LocalDate.now().plusYears(5));
+
+            client.addCard(card1);
+            cardRepository.save(card1);
+
+            Card card2 = new Card(client.toString(),CardType.CREDIT, CardColor.TITANIUM,
+                        "0984 6789 8765 4883",784,LocalDate.now(),LocalDate.now().plusYears(5));
+
+            client.addCard(card2);
+            cardRepository.save(card2);
+
+            Card card3 = new Card(client1.toString(),CardType.CREDIT, CardColor.SILVER,
+                        "0432 5683 8765 5883",167,LocalDate.now(),LocalDate.now().plusYears(5));
+
+            client1.addCard(card3);
+            cardRepository.save(card3);
 
 
         };
