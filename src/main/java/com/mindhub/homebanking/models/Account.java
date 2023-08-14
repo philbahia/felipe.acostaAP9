@@ -60,7 +60,7 @@ public class Account {
         return balance;
     }
 
-    @JsonIgnore
+    //@JsonIgnore
     public Client getOwnerAccount() {
         return ownerAccount;
     }
@@ -69,7 +69,7 @@ public class Account {
         return transactions;
     }
 
-//Setters
+    //Setters
 
 
     public void setOwnerAccount(Client ownerAccount) {

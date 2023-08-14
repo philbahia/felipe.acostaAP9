@@ -112,9 +112,12 @@ public class Client {
         cards.add(card);
     }
 
-    @JsonIgnore
+    //@JsonIgnore
     public List<Loan> getLoans(){
-        return clientLoans.stream().map(clientLoan -> clientLoan.getLoan()).collect(toList());
+        return clientLoans
+                .stream()
+                .map(ClientLoan::getLoan)
+                .collect(toList());
     }
 
 }
