@@ -58,7 +58,7 @@ public class Transaction {
         return date;
     }
 
-    //@JsonIgnore
+
     public Account getAccount() {
         return account;
     }

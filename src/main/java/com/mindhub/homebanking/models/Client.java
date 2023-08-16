@@ -112,7 +112,7 @@ public class Client {
         cards.add(card);
     }
 
-    //@JsonIgnore
+
     public List<Loan> getLoans(){
         return clientLoans
                 .stream()
