@@ -30,19 +30,26 @@ public class Client {
     private String firstName;
     private String lastName;
     private String email;
+    private String password;
 
     //Constructores
     public Client() {
 
     }
 
-    public Client(String firstName, String lastName, String email) {
+    public Client(String firstName, String lastName, String email, String password) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
+        this.password = password;
     }
 
     //Getters
+
+
+    public String getPassword() {
+        return password;
+    }
 
     public Set<Card> getCards() {
         return cards;
@@ -74,6 +81,10 @@ public class Client {
 
     //Setters
 
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
 
     public void setAccounts(Set<Account> accounts) {
         this.accounts = accounts;

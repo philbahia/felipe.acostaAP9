@@ -5,6 +5,7 @@ import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
 import java.time.LocalDate;
+import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -50,6 +51,10 @@ public class Account {
 
     public String getNumber() {
         return number;
+    }
+
+    public LocalDate getDate() {
+        return creationDate;
     }
 
     public LocalDate getCreationDate() {
