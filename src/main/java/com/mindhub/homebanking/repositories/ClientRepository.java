@@ -8,5 +8,5 @@ import org.springframework.data.repository.query.Param;
 
 @RepositoryRestResource
 public interface ClientRepository extends JpaRepository<Client, Long> {
-    Client findByEmail(@Param("email") String email);
+    Client findByEmail(String email);
 }

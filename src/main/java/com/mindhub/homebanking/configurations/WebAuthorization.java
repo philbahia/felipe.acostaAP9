@@ -1,10 +1,12 @@
 package com.mindhub.homebanking.configurations;
 
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpMethod;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.WebAttributes;
 import org.springframework.security.web.authentication.logout.HttpStatusReturningLogoutSuccessHandler;
 
@@ -15,28 +17,24 @@ import javax.servlet.http.HttpSession;
 
 @EnableWebSecurity
 @Configuration
-public class WebAuthorization extends WebSecurityConfigurerAdapter {
+//public class WebAuthorization extends WebSecurityConfigurerAdapter {
+public class WebAuthorization{
 
-
-    @Override
-    protected void configure(HttpSecurity http) throws Exception {
+    //@Override
+    //protected void configure(HttpSecurity http) throws Exception {
+    @Bean
+    public SecurityFilterChain filterChain(HttpSecurity http) throws Exception{
 
         http.authorizeRequests()
                 .antMatchers("/web/index.html","/web/img/**","/web/js/**","/web/css/**").permitAll()
-
                 .antMatchers(HttpMethod.POST,"/api/logout").permitAll()
-                .antMatchers("/api/clients/current","/api/clients/current/{id}").hasAuthority("CLIENT")
-                .antMatchers("/web/accounts.html","/web/cards.html").hasAuthority("CLIENT")
-                .antMatchers("/api/accounts/{id}").hasAuthority("CLIENT")
+                .antMatchers(HttpMethod.POST,"/api/clients").permitAll()
+
+                .antMatchers("/web/accounts.html","/web/cards.html").hasAnyAuthority("CLIENT","ADMIN")
+                .antMatchers(HttpMethod.GET,"/api/clients/current").hasAuthority("CLIENT")
                 .antMatchers("/web/account.html/{id}").hasAuthority("CLIENT")
-
-                .antMatchers(HttpMethod.POST,"/api/clients").hasAuthority("ADMIN")
-                .antMatchers("/api/**").hasAuthority("ADMIN")
-                .antMatchers("/api/clients/{id}","/api/clients","/rest/**", "/h2-console/**").hasAuthority("ADMIN")
-                ;//.anyRequest().denyAll();
-
-
-
+                .antMatchers("/api/accounts","/api/clients/").hasAuthority("ADMIN")
+                .antMatchers("/api/clients/{id}/","/api/clients","/rest/**", "/h2-console/**").hasAuthority("ADMIN");
 
 
         http.formLogin()
@@ -60,6 +58,9 @@ public class WebAuthorization extends WebSecurityConfigurerAdapter {
         http.formLogin().failureHandler((req, res, exc) -> res.sendError(HttpServletResponse.SC_UNAUTHORIZED));
         // if logout is successful, just send a success response
         http.logout().logoutSuccessHandler(new HttpStatusReturningLogoutSuccessHandler());
+
+        return http.build();
+
     }
 
         private void clearAuthenticationAttributes(HttpServletRequest request) {
@@ -68,6 +69,7 @@ public class WebAuthorization extends WebSecurityConfigurerAdapter {
                 session.removeAttribute(WebAttributes.AUTHENTICATION_EXCEPTION);
             }
         }
+
 
 }
 
