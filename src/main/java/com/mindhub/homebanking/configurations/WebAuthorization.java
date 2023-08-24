@@ -17,11 +17,9 @@ import javax.servlet.http.HttpSession;
 
 @EnableWebSecurity
 @Configuration
-//public class WebAuthorization extends WebSecurityConfigurerAdapter {
+
 public class WebAuthorization{
 
-    //@Override
-    //protected void configure(HttpSecurity http) throws Exception {
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception{
 
