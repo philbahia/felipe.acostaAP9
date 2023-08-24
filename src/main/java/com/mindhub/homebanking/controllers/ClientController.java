@@ -31,13 +31,30 @@ public class ClientController {
         return clientRepository.findAll().stream().map(ClientDTO::new).collect(toList());
     }
 
-    @GetMapping("/clients/{id}")
+   /* @GetMapping("/clients/{id}")
     public ClientDTO getClientById(@PathVariable Long id){
         Optional<Client> client = clientRepository.findById(id);
 
         return new ClientDTO(client.get());
 
+    }*/
+
+    @RequestMapping("/clients/{id}")
+    public ResponseEntity<Object> getClientNew(@PathVariable Long id, Authentication authentication){
+
+        Client client = clientRepository.findByEmail(authentication.getName());
+        Client clientA = clientRepository.findById(id).orElse(null);
+
+        if (clientA.equals(client)){
+            ClientDTO clientDTO = new ClientDTO(clientA);
+            return new ResponseEntity<>(clientDTO,HttpStatus.ACCEPTED);
+        }else{
+            return new ResponseEntity<>("Client no Available",HttpStatus.CONFLICT);
+        }
+
     }
+
+
     @RequestMapping("/clients/current")
     public ClientDTO getAll(Authentication authentication){
         return new ClientDTO(clientRepository.findByEmail(authentication.getName()));
