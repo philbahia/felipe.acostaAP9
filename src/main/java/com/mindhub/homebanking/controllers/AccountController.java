@@ -1,7 +1,6 @@
 package com.mindhub.homebanking.controllers;
 
 import com.mindhub.homebanking.dtos.AccountDTO;
-import com.mindhub.homebanking.dtos.ClientDTO;
 import com.mindhub.homebanking.models.Account;
 import com.mindhub.homebanking.models.Client;
 import com.mindhub.homebanking.repositories.AccountRepository;
@@ -12,7 +11,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.*;
 
-import java.text.SimpleDateFormat;
+
 import java.time.LocalDate;
 import java.util.*;
 
@@ -64,19 +63,11 @@ public class AccountController {
             return ResponseEntity.status(HttpStatus.FORBIDDEN).body("Client already has the maximum allowed accounts");
         }
 
-        // Genera un número de cuenta aleatorio
         String accountNumber = generateAccountNumber();
 
-
-
-        // Crea una nueva instancia de Account
         Account newAccount = new Account(accountNumber,LocalDate.now(),0.0);
-
         client.addAccount(newAccount);
-
-        // Guarda la cuenta a través del repositorio
         accountRepository.save(newAccount);
-
 
         return ResponseEntity.status(HttpStatus.CREATED).body("Account Created");
 

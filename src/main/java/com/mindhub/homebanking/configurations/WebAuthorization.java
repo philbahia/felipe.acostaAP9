@@ -25,19 +25,31 @@ public class WebAuthorization{
 
         http.authorizeRequests()
                 .antMatchers("/web/index.html","/web/img/**","/web/js/**","/web/css/**").permitAll()
-                .antMatchers(HttpMethod.POST,"/api/logout").permitAll()
+                .antMatchers(HttpMethod.POST,"/api/logout","/api/login").permitAll()
                 .antMatchers(HttpMethod.POST,"/api/clients").permitAll()
 
-                //.antMatchers("/web/accounts.html").hasAuthority("CLIENT")
-                //.antMatchers("/web/cards.html").hasAnyAuthority("CLIENT","ADMIN")
+                .antMatchers(HttpMethod.POST,"/web/account.html").hasAuthority("CLIENT")
+
+                .antMatchers("/web/cards.html","/web/account.html","/web/accounts.html").hasAnyAuthority("CLIENT","ADMIN")
+                .antMatchers("/web/create-cards.html").hasAuthority("CLIENT")
+                .antMatchers("/api/clients/current").hasAuthority("CLIENT")
                 .antMatchers(HttpMethod.POST,"/api/clients/current/accounts").hasAuthority("CLIENT")
                 .antMatchers(HttpMethod.POST,"/api/clients/current/cards").hasAuthority("CLIENT")
-                //.antMatchers(HttpMethod.GET,"/api/clients/current","/api/clients/current/cards").hasAuthority("CLIENT")
+                .antMatchers("/api/accounts/{id}").hasAuthority("CLIENT")
+                .antMatchers("/api/clients/current/accounts","/api/clients/current/cards").hasAuthority("CLIENT")
 
-                //.antMatchers("/web/account.html/{id}").hasAuthority("CLIENT")
                 .antMatchers("/api/accounts","/api/clients/").hasAuthority("ADMIN")
-                .antMatchers("/api/clients/{id}/","/api/clients","/rest/**", "/h2-console/**").hasAnyAuthority("ADMIN");
+                .antMatchers("/api/clients/{id}/","/api/clients","/rest/**", "/h2-console/**").hasAnyAuthority("ADMIN")
+                .anyRequest().denyAll();
 
+        /*
+
+
+
+
+
+
+        */
 
         http.formLogin()
 
@@ -46,7 +58,7 @@ public class WebAuthorization{
                 .loginPage("/api/login");
 
 
-        http.logout().logoutUrl("/api/logout");
+        http.logout().logoutUrl("/api/logout").deleteCookies("JSESSIONID");
 
         // turn off checking for CSRF tokens
         http.csrf().disable();

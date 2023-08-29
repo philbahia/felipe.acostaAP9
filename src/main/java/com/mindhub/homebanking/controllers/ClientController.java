@@ -14,7 +14,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 
 import java.time.LocalDate;
 import java.util.List;
-import java.util.Optional;
+
 import java.util.Random;
 
 
@@ -47,9 +47,9 @@ public class ClientController {
 
         if (clientA.equals(client)){
             ClientDTO clientDTO = new ClientDTO(clientA);
-            return new ResponseEntity<>(clientDTO,HttpStatus.ACCEPTED);
+            return ResponseEntity.status(HttpStatus.ACCEPTED).body(clientDTO);
         }else{
-            return new ResponseEntity<>("Client no Available",HttpStatus.CONFLICT);
+            return ResponseEntity.status(HttpStatus.CONFLICT).body("Client no Available");
         }
 
     }
@@ -70,11 +70,11 @@ public class ClientController {
 
 
         if (firstName.isEmpty() || lastName.isEmpty() || email.isEmpty() || password.isEmpty()) {
-            return new ResponseEntity<>("Missing data", HttpStatus.FORBIDDEN);
+            return ResponseEntity.status(HttpStatus.FORBIDDEN).body("Missing data");
         }
 
         if (clientRepository.findByEmail(email) !=  null) {
-            return new ResponseEntity<>("Name already in use", HttpStatus.FORBIDDEN);
+            return ResponseEntity.status(HttpStatus.FORBIDDEN).body("Name already in use");
         }
 
         Client client = new Client(firstName, lastName, email, passwordEncoder.encode(password));
@@ -88,7 +88,7 @@ public class ClientController {
         client.addAccount(account);
 
         accountRepository.save(account);
-        return new ResponseEntity<>(HttpStatus.CREATED);
+        return ResponseEntity.status(HttpStatus.CREATED).body("Account Created");
 
     }
 

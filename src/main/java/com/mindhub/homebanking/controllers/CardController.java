@@ -46,7 +46,7 @@ public class CardController {
 
         long existingCardCount = client.getCards()
                 .stream()
-                .filter(card -> card.getType() == cardType)
+                .filter(card -> card.getType().equals(cardType))
                 .count();
 
 
@@ -56,7 +56,7 @@ public class CardController {
 
         boolean sameCardColor = client.getCards()
                 .stream()
-                .anyMatch(card -> card.getType() == cardType && card.getColor() == cardColor);
+                .anyMatch(card -> card.getType().equals(cardType) && card.getColor().equals(cardColor));
 
         if (sameCardColor) {
             return ResponseEntity.status(HttpStatus.FORBIDDEN).body("This Client already has a card of the same color for this type");
@@ -87,7 +87,7 @@ public class CardController {
 
     public  int generateCvv() {
         Random random = new Random();
-        return random.nextInt(900) + 100; // Genera un número entre 100 y 999 (3 dígitos)
+        return random.nextInt(900) + 100;
     }
 
     public  String generateCardNumber(){
