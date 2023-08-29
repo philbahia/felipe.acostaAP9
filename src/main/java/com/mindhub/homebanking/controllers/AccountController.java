@@ -10,12 +10,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.Authentication;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
-import java.util.Optional;
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.util.*;
 
 
 import static java.util.stream.Collectors.toList;
@@ -46,10 +45,52 @@ public class AccountController {
 
         if (account.getOwnerAccount().equals(client)){
             AccountDTO accountDTO = new AccountDTO(account);
-            return new ResponseEntity<>(accountDTO,HttpStatus.ACCEPTED);
+            return ResponseEntity.status(HttpStatus.ACCEPTED).body(accountDTO);
         }else{
-            return new ResponseEntity<>("Account no Available",HttpStatus.CONFLICT);
+            return ResponseEntity.status(HttpStatus.CONFLICT).body("Account no Available");
         }
 
     }
+
+
+
+    @PostMapping("/clients/current/accounts")
+    public ResponseEntity<Object> createAccount(Authentication authentication) {
+        // Consulto x el cliente con sesión iniciada
+        Client client = clientRepository.findByEmail(authentication.getName());
+
+        // Verifico el límite de cuentas por cliente
+        if (client.getAccounts().size() >= 3) {
+            return ResponseEntity.status(HttpStatus.FORBIDDEN).body("Client already has the maximum allowed accounts");
+        }
+
+        // Genera un número de cuenta aleatorio
+        String accountNumber = generateAccountNumber();
+
+
+
+        // Crea una nueva instancia de Account
+        Account newAccount = new Account(accountNumber,LocalDate.now(),0.0);
+
+        client.addAccount(newAccount);
+
+        // Guarda la cuenta a través del repositorio
+        accountRepository.save(newAccount);
+
+
+        return ResponseEntity.status(HttpStatus.CREATED).body("Account Created");
+
+    }
+
+    private String generateAccountNumber() {
+        // Genera un número aleatorio de 6 dígitos
+        Random random = new Random();
+        int randomNumber = random.nextInt(900000) + 100000;
+        return "VIN-" + randomNumber;
+    }
+
+
+
+
+
 }

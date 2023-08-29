@@ -28,11 +28,15 @@ public class WebAuthorization{
                 .antMatchers(HttpMethod.POST,"/api/logout").permitAll()
                 .antMatchers(HttpMethod.POST,"/api/clients").permitAll()
 
-                .antMatchers("/web/accounts.html","/web/cards.html").hasAnyAuthority("CLIENT","ADMIN")
-                .antMatchers(HttpMethod.GET,"/api/clients/current").hasAuthority("CLIENT")
-                .antMatchers("/web/account.html/{id}").hasAuthority("CLIENT")
+                //.antMatchers("/web/accounts.html").hasAuthority("CLIENT")
+                //.antMatchers("/web/cards.html").hasAnyAuthority("CLIENT","ADMIN")
+                .antMatchers(HttpMethod.POST,"/api/clients/current/accounts").hasAuthority("CLIENT")
+                .antMatchers(HttpMethod.POST,"/api/clients/current/cards").hasAuthority("CLIENT")
+                //.antMatchers(HttpMethod.GET,"/api/clients/current","/api/clients/current/cards").hasAuthority("CLIENT")
+
+                //.antMatchers("/web/account.html/{id}").hasAuthority("CLIENT")
                 .antMatchers("/api/accounts","/api/clients/").hasAuthority("ADMIN")
-                .antMatchers("/api/clients/{id}/","/api/clients","/rest/**", "/h2-console/**").hasAuthority("ADMIN");
+                .antMatchers("/api/clients/{id}/","/api/clients","/rest/**", "/h2-console/**").hasAnyAuthority("ADMIN");
 
 
         http.formLogin()

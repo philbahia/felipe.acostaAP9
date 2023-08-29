@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
+import javax.xml.bind.SchemaOutputResolver;
 import java.time.LocalDate;
 import java.util.Date;
 import java.util.HashSet;
@@ -40,6 +41,8 @@ public class Account {
         this.number = number;
         this.creationDate = creationDate;
         this.balance = balance;
+
+
     }
 
     //Getters
@@ -76,6 +79,10 @@ public class Account {
 
     //Setters
 
+
+    public void setDate(LocalDate date) {
+        this.creationDate = creationDate;
+    }
 
     public void setOwnerAccount(Client ownerAccount) {
         this.ownerAccount = ownerAccount;

@@ -113,6 +113,8 @@ public class HomebankingApplication {
 
             Client admin = clientRepository.save(new Client("admin", "admin", "admin@admin.com", passwordEncoder.encode("admin")));
 
+
+
         };
 	}
 
