@@ -23,36 +23,28 @@ public class WebAuthorization{
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception{
 
-
-              /*
-               .antMatchers(HttpMethod.POST,"/api/clients").permitAll()
-
-                .antMatchers(HttpMethod.POST,"/api/clients/current/accounts").hasAuthority("CLIENT")
-                .antMatchers(HttpMethod.POST,"/web/account.html").hasAuthority("CLIENT")
-                .antMatchers(HttpMethod.POST,"/api/transactions").hasAuthority("CLIENT")
-                .antMatchers("/web/cards.html","/web/account.html","/web/accounts.html","/web/transfers.html").hasAnyAuthority("CLIENT","ADMIN")
-                .antMatchers("/web/create-cards.html").hasAuthority("CLIENT")
-                .antMatchers("/api/clients/current").hasAuthority("CLIENT")
-                //.antMatchers(HttpMethod.GET,"/api/clients/current/accounts").hasAuthority("CLIENT")
-                //.antMatchers(HttpMethod.GET, "/api/clients/current/accounts").hasAuthority("CLIENT")
-
-                //.antMatchers(HttpMethod.POST,"/api/clients/current/accounts").hasAuthority("CLIENT")
-                //.antMatchers("/api/clients/current/accounts").hasAuthority("CLIENT")
-                .antMatchers(HttpMethod.POST,"/api/clients/current/cards").hasAuthority("CLIENT")
-                .antMatchers("/api/accounts/{id}").hasAuthority("CLIENT")
-                //.antMatchers("/api/clients/current/accounts","/api/clients/current/cards").hasAuthority("CLIENT")
-
-                .antMatchers("/api/accounts","/api/clients/").hasAuthority("ADMIN")
-                .antMatchers("/api/clients/{id}/","/api/clients","/rest/**", "/h2-console/**").hasAnyAuthority("ADMIN")
-                ;//.anyRequest().denyAll();
-
-        */
-
-
         http.authorizeRequests()
                 .antMatchers("/web/index.html","/web/img/**","/web/js/**","/web/css/**").permitAll()
                 .antMatchers(HttpMethod.POST,"/api/logout","/api/login").permitAll()
-                .antMatchers(HttpMethod.POST,"/api/clients/current/accounts").hasAuthority("CLIENT");
+                .antMatchers(HttpMethod.POST,"/api/clients").permitAll()
+
+                .antMatchers(HttpMethod.POST,"/web/account.html").hasAuthority("CLIENT")
+
+                .antMatchers("/web/cards.html","/web/account.html","/web/accounts.html").hasAnyAuthority("CLIENT","ADMIN")
+                .antMatchers("/web/create-cards.html","/web/transfers.html").hasAuthority("CLIENT")
+                .antMatchers("/api/clients/current").hasAuthority("CLIENT")
+                .antMatchers(HttpMethod.POST,"/api/transactions").hasAuthority("CLIENT")
+
+                .antMatchers(HttpMethod.POST,"/api/clients/current/accounts").hasAuthority("CLIENT")
+                .antMatchers(HttpMethod.GET,"/api/clients/current/accounts").hasAuthority("CLIENT")
+                .antMatchers(HttpMethod.GET,"/clients/current/cards").hasAuthority("CLIENT")
+                .antMatchers(HttpMethod.POST,"/api/clients/current/cards").hasAuthority("CLIENT")
+                .antMatchers("/api/accounts/{id}").hasAuthority("CLIENT")
+                .antMatchers("/api/clients/current/accounts","/api/clients/current/cards").hasAuthority("CLIENT")
+
+                .antMatchers("/api/accounts","/api/clients/").hasAuthority("ADMIN")
+                .antMatchers("/api/clients/{id}/","/api/clients","/rest/**", "/h2-console/**").hasAnyAuthority("ADMIN")
+                .anyRequest().denyAll();
 
 
         http.formLogin()

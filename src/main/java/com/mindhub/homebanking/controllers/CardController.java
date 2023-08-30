@@ -1,6 +1,8 @@
 package com.mindhub.homebanking.controllers;
 
 
+import com.mindhub.homebanking.dtos.AccountDTO;
+import com.mindhub.homebanking.dtos.CardDTO;
 import com.mindhub.homebanking.models.*;
 import com.mindhub.homebanking.repositories.CardRepository;
 import com.mindhub.homebanking.repositories.ClientRepository;
@@ -8,16 +10,15 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.Authentication;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Random;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/api")
@@ -29,6 +30,21 @@ public class CardController {
 
     @Autowired
     private CardRepository cardRepository;
+
+    @GetMapping("/clients/current/cards")
+    public ResponseEntity<Object> getCurrentClientCardss(Authentication authentication) {
+        Client client = clientRepository.findByEmail(authentication.getName());
+
+        if (client != null) {
+            List<CardDTO> cardDTOs = client.getCards().stream()
+                    .map(CardDTO::new)
+                    .collect(Collectors.toList());
+
+            return ResponseEntity.status(HttpStatus.OK).body(cardDTOs);
+        } else {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Client not found");
+        }
+    }
 
     @PostMapping("/clients/current/cards")
     public ResponseEntity<Object> createCard(
