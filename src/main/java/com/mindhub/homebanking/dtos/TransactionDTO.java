@@ -7,6 +7,7 @@ import com.mindhub.homebanking.models.TransactionType;
 
 import javax.persistence.*;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 public class TransactionDTO {
 
@@ -16,7 +17,7 @@ public class TransactionDTO {
     private TransactionType type;
     private double amount;
     private String description;
-    private LocalDate date;
+    private LocalDateTime date;
 
     private Account ownerTransaction;
 
@@ -47,7 +48,7 @@ public class TransactionDTO {
         return description;
     }
 
-    public LocalDate getDate() {
+    public LocalDateTime getDate() {
         return date;
     }
 

@@ -11,6 +11,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.Arrays;
 import java.util.List;
 
@@ -43,11 +44,11 @@ public class HomebankingApplication {
             client.addAccount(account);
             accountRepository.save(account);
 
-            Transaction transaction = new Transaction(TransactionType.DEBIT,-15000,"School Payment",LocalDate.now());
+            Transaction transaction = new Transaction(TransactionType.DEBIT,-15000,"School Payment", LocalDateTime.now());
             account.addTransaction(transaction);
             transactionRepository.save(transaction);
 
-            Transaction transaction1 = new Transaction(TransactionType.CREDIT,225000,"Loan",LocalDate.now());
+            Transaction transaction1 = new Transaction(TransactionType.CREDIT,225000,"Loan",LocalDateTime.now());
             account.addTransaction(transaction1);
             transactionRepository.save(transaction1);
 
@@ -55,11 +56,11 @@ public class HomebankingApplication {
             client.addAccount(account1);
             accountRepository.save(account1);
 
-            Transaction transaction2 = new Transaction(TransactionType.DEBIT,-150000,"Debt",LocalDate.now());
+            Transaction transaction2 = new Transaction(TransactionType.DEBIT,-150000,"Debt",LocalDateTime.now());
             account1.addTransaction(transaction2);
             transactionRepository.save(transaction2);
 
-            Transaction transaction3 = new Transaction(TransactionType.CREDIT,2225000,"Revenue",LocalDate.now());
+            Transaction transaction3 = new Transaction(TransactionType.CREDIT,2225000,"Revenue",LocalDateTime.now());
             account1.addTransaction(transaction3);
             transactionRepository.save(transaction3);
 
