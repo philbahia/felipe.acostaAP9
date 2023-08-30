@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDate;
 import java.util.*;
+import java.util.stream.Collectors;
 
 
 import static java.util.stream.Collectors.toList;
@@ -51,7 +52,20 @@ public class AccountController {
 
     }
 
+    @GetMapping("/clients/current/accounts")
+    public ResponseEntity<Object> getCurrentClientAccounts(Authentication authentication) {
+        Client client = clientRepository.findByEmail(authentication.getName());
 
+        if (client != null) {
+            List<AccountDTO> accountDTOs = client.getAccounts().stream()
+                    .map(AccountDTO::new)
+                    .collect(Collectors.toList());
+
+            return ResponseEntity.status(HttpStatus.OK).body(accountDTOs);
+        } else {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Client not found");
+        }
+    }
 
     @PostMapping("/clients/current/accounts")
     public ResponseEntity<Object> createAccount(Authentication authentication) {
