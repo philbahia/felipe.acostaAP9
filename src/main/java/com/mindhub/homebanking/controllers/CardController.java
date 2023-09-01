@@ -53,6 +53,11 @@ public class CardController {
             @RequestParam CardColor cardColor
     ) {
 
+        // TODO: 31/8/2023  // Valido parametros
+        if (cardType == null || cardColor == null) {
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Card type and color must be provided.");
+        }
+        
         // Consulto x el cliente con sesión iniciada
         Client client = clientRepository.findByEmail(authentication.getName());
 
@@ -83,6 +88,8 @@ public class CardController {
         String numberCard = generateCardNumber();
         int cvv = generateCvv();
 
+
+
         Card newCard = new Card(client.toString(),
                             cardType,
                             cardColor,
@@ -108,11 +115,12 @@ public class CardController {
 
     public  String generateCardNumber(){
         String cardNumber;
-        Set<String> existCards = new HashSet<>();
+        // TODO: 31/8/2023 verificar si existe nro en la base
+
 
         do {
             cardNumber = randomCardNumber();
-        } while (existCards.contains(cardNumber));
+        } while (cardRepository.existsByNumber(cardNumber));
 
         return cardNumber;
     }
