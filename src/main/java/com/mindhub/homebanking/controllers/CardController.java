@@ -105,9 +105,6 @@ public class CardController {
 
     }
 
-
-
-
     public  int generateCvv() {
         Random random = new Random();
         return random.nextInt(900) + 100;
