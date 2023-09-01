@@ -117,7 +117,6 @@ public class CardController {
         String cardNumber;
         // TODO: 31/8/2023 verificar si existe nro en la base
 
-
         do {
             cardNumber = randomCardNumber();
         } while (cardRepository.existsByNumber(cardNumber));
