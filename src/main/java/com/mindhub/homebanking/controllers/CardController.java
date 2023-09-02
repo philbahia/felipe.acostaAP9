@@ -53,6 +53,7 @@ public class CardController {
             @RequestParam CardColor cardColor
     ) {
 
+        // TODO: 1/9/2023 ver 
         // TODO: 31/8/2023  // Valido parametros
         if (cardType == null || cardColor == null) {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Card type and color must be provided.");
