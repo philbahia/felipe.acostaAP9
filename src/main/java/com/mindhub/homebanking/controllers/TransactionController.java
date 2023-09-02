@@ -36,8 +36,10 @@ public class TransactionController {
 
     @RequestMapping("/transactions")
     public List<TransactionDTO> getTransactions(){
-        return transactionRepository.findAll().stream()
-                .map(TransactionDTO::new).collect(toList());
+        return transactionRepository.findAll()
+                .stream()
+                .map(TransactionDTO::new)
+                .collect(toList());
     }
 
     @RequestMapping("/transactions/{id}")

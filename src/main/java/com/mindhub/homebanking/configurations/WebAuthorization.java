@@ -29,14 +29,14 @@ public class WebAuthorization{
                 .antMatchers(HttpMethod.POST,"/api/clients").permitAll()
 
                 .antMatchers(HttpMethod.POST,"/web/account.html").hasAuthority("CLIENT")
-
+                .antMatchers("/web/loan-application.html").hasAuthority("CLIENT")
                 .antMatchers("/web/cards.html","/web/account.html","/web/accounts.html").hasAnyAuthority("CLIENT","ADMIN")
                 .antMatchers("/web/create-cards.html","/web/transfers.html").hasAuthority("CLIENT")
                 .antMatchers("/api/clients/current").hasAuthority("CLIENT")
                 .antMatchers(HttpMethod.POST,"/api/transactions").hasAuthority("CLIENT")
 
                 .antMatchers(HttpMethod.POST,"/api/clients/current/accounts").hasAuthority("CLIENT")
-                .antMatchers(HttpMethod.GET,"/api/clients/current/accounts").hasAuthority("CLIENT")
+                .antMatchers(HttpMethod.GET,"/api/clients/current/accounts","/api/loans").hasAuthority("CLIENT")
                 .antMatchers(HttpMethod.GET,"/clients/current/cards").hasAuthority("CLIENT")
                 .antMatchers(HttpMethod.POST,"/api/clients/current/cards").hasAuthority("CLIENT")
                 .antMatchers("/api/accounts/{id}").hasAuthority("CLIENT")
