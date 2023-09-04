@@ -105,6 +105,10 @@ public class Account {
         return number + " " + balance;
     }
 
+    public String toDetailsAproved(){
+        return  number + " " + "loan approved";
+    }
+
     public void addTransaction(Transaction transaction){
         transaction.setAccount(this);
         transactions.add(transaction);

@@ -6,6 +6,8 @@ import com.mindhub.homebanking.dtos.CardDTO;
 import com.mindhub.homebanking.models.*;
 import com.mindhub.homebanking.repositories.CardRepository;
 import com.mindhub.homebanking.repositories.ClientRepository;
+import com.mindhub.homebanking.services.CardService;
+import com.mindhub.homebanking.services.ClientService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -25,15 +27,16 @@ import java.util.stream.Collectors;
 public class CardController {
 
     @Autowired
-    private ClientRepository clientRepository;
-
+    //private ClientRepository clientRepository;
+    private ClientService clientService;
 
     @Autowired
-    private CardRepository cardRepository;
+    //private CardRepository cardRepository;
+    private CardService cardService;
 
     @GetMapping("/clients/current/cards")
     public ResponseEntity<Object> getCurrentClientCardss(Authentication authentication) {
-        Client client = clientRepository.findByEmail(authentication.getName());
+        Client client = clientService.findByEmail(authentication.getName());
 
         if (client != null) {
             List<CardDTO> cardDTOs = client.getCards().stream()
@@ -60,7 +63,7 @@ public class CardController {
         }
         
         // Consulto x el cliente con sesión iniciada
-        Client client = clientRepository.findByEmail(authentication.getName());
+        Client client = clientService.findByEmail(authentication.getName());
 
         if (client == null) {
             return ResponseEntity.status(HttpStatus.NOT_ACCEPTABLE).body("No valid client");
@@ -100,7 +103,7 @@ public class CardController {
                             LocalDate.now().plusYears(5));
 
         client.addCard(newCard);
-        cardRepository.save(newCard);
+        cardService.addCard(newCard);
 
         return ResponseEntity.status(HttpStatus.CREATED).body("Account Created");
 
@@ -117,7 +120,7 @@ public class CardController {
 
         do {
             cardNumber = randomCardNumber();
-        } while (cardRepository.existsByNumber(cardNumber));
+        } while (cardService.existsByNumber(cardNumber));
 
         return cardNumber;
     }

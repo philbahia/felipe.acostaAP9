@@ -3,39 +3,39 @@ package com.mindhub.homebanking.dtos;
 import com.mindhub.homebanking.models.Loan;
 
 public class LoanApplicationDTO {
-    private long id;
+    private Long loanId;
     private double amount;
-    private int payments;
-    private String numberAccount;
-    private int interest;
+    private Integer payments;
+    private String toAccountNumber;
 
     public LoanApplicationDTO() {
     }
-    public LoanApplicationDTO(long id, double amount, int payments, String numberAccount,int interest){
-        this.id = id;
+
+    public LoanApplicationDTO(Long loanId, double amount, int payments, String toAccountNumber){
+        this.loanId = loanId;
         this.amount = amount;
         this.payments = payments;
-        this.numberAccount = numberAccount;
-        this.interest = interest;
+        this.toAccountNumber = toAccountNumber;
+        //this.interest = interest;
     }
 
-    public long getId() {
-        return id;
+    public Long getLoanId() {
+        return loanId;
     }
 
     public double getAmount() {
         return amount;
     }
 
-    public int getPayments() {
+    public Integer getPayments() {
         return payments;
     }
 
-    public String getNumberAccount() {
-        return numberAccount;
+    public String getToAccountNumber() {
+        return toAccountNumber;
     }
 
-    public int getInterest() {
+   /* public int getInterest() {
         return interest;
-    }
+    }*/
 }

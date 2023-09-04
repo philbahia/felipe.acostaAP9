@@ -6,6 +6,8 @@ import com.mindhub.homebanking.models.Account;
 import com.mindhub.homebanking.models.Transaction;
 import com.mindhub.homebanking.repositories.AccountRepository;
 import com.mindhub.homebanking.repositories.TransactionRepository;
+import com.mindhub.homebanking.services.AccountService;
+import com.mindhub.homebanking.services.TransactionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -30,22 +32,22 @@ public class TransactionController {
 
 
     @Autowired
-    private TransactionRepository transactionRepository;
+    private TransactionService transactionService;
+
     @Autowired
-    private AccountRepository accountRepository;
+    private AccountService accountService;
+
+
+
 
     @RequestMapping("/transactions")
     public List<TransactionDTO> getTransactions(){
-        return transactionRepository.findAll()
-                .stream()
-                .map(TransactionDTO::new)
-                .collect(toList());
+        return transactionService.getTransactions();
     }
 
     @RequestMapping("/transactions/{id}")
     public TransactionDTO getTransactionById(@PathVariable Long id){
-        Optional<Transaction> transaction = transactionRepository.findById(id);
-        return new TransactionDTO(transaction.get());
+        return new TransactionDTO(transactionService.findById(id));
     }
 
     @Transactional
@@ -68,7 +70,7 @@ public class TransactionController {
             return ResponseEntity.status(HttpStatus.FORBIDDEN).body("Sender and receiver accounts cannot be the same");
         }
         //Verificar que exista la cuenta de origen
-        Account senderAccount = accountRepository.findByNumber(fromAccountNumber);
+        Account senderAccount = accountService.findByNumber(fromAccountNumber);
 
         if (senderAccount == null) {
             return ResponseEntity.status(HttpStatus.FORBIDDEN).body("Sender account not found");
@@ -82,7 +84,7 @@ public class TransactionController {
         }
 
         //Verificar que exista la cuenta de destino
-        Account receiverAccount = accountRepository.findByNumber(toAccountNumber);
+        Account receiverAccount = accountService.findByNumber(toAccountNumber);
 
         if (receiverAccount == null) {
             return ResponseEntity.status(HttpStatus.FORBIDDEN).body("Receiver account not found");
@@ -117,11 +119,11 @@ public class TransactionController {
         senderAccount.setBalance(senderAccount.getBalance() - amount);
         receiverAccount.setBalance(receiverAccount.getBalance() + amount);
 
-        accountRepository.save(senderAccount);
-        accountRepository.save(receiverAccount);
+        accountService.addAccount(senderAccount);
+        accountService.addAccount(receiverAccount);
 
-        transactionRepository.save(debitTransfer);
-        transactionRepository.save(creditTransfer);
+        transactionService.addTransaction(debitTransfer);
+        transactionService.addTransaction(creditTransfer);
 
 
         return ResponseEntity.status(HttpStatus.CREATED).body("Transaction created successfully");
