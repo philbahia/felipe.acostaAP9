@@ -48,6 +48,7 @@ public class ClientController {
     @RequestMapping("/clients/{id}")
     public ResponseEntity<Object> getClientNew(@PathVariable Long id, Authentication authentication){
 
+
         Client client = clientService.findByEmail(authentication.getName());
         Client clientA = clientService.findById(id);
 
