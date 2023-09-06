@@ -124,19 +124,20 @@ public class LoanController {
         //Se debe crear una transacción “CREDIT” asociada a la cuenta de destino (el monto debe quedar positivo)
         // con la descripción concatenando el nombre del préstamo y la frase “loan approved”
 
-        Transaction loanTransfer = new Transaction();
-        loanTransfer.setAccount(toAccount);
-        loanTransfer.setDescription(toAccount.toDetailsAproved());
-        loanTransfer.setAmount(loanApplicationDTO.getAmount());
-        loanTransfer.setType(TransactionType.CREDIT);
-        loanTransfer.setDate(LocalDateTime.now());
+        Transaction loanTransfer = new Transaction(TransactionType.CREDIT,
+                loanApplicationDTO.getAmount(), toAccount.toDetailsAproved(),LocalDateTime.now());
+
+        //loanTransfer.setAccount(toAccount);
+        //loanTransfer.setDescription(toAccount.toDetailsAproved());
+        //loanTransfer.setAmount(loanApplicationDTO.getAmount());
+        //loanTransfer.setType(TransactionType.CREDIT);
+        //loanTransfer.setDate(LocalDateTime.now());
 
         //public ClientLoan(double amount, Integer payments, Client client, Loan loan) {
-        ClientLoan newLoan = new ClientLoan();
-        newLoan.setAmount(totalLoan);
-        newLoan.setPayments(loanApplicationDTO.getPayments());
-        newLoan.setClient(client);
-        newLoan.setLoan(loan);
+        ClientLoan newLoan = new ClientLoan(totalLoan,
+                loanApplicationDTO.getPayments(),
+                client,
+                loan);
 
         //clientLoanRepository.save(newLoan);
         clientLoanService.addClientLoan(newLoan);
