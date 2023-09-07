@@ -21,13 +21,15 @@ import java.util.List;
 @SpringBootApplication
 public class HomebankingApplication {
 
-    @Autowired
-    private PasswordEncoder passwordEncoder;
+    //@Autowired
+    //private PasswordEncoder passwordEncoder;
 
     public static void main(String[] args) {
         SpringApplication.run(HomebankingApplication.class, args);
 
     }
+
+    /*
 	@Bean
 	public CommandLineRunner initData(ClientRepository clientRepository,
                                       AccountRepository accountRepository,
@@ -37,8 +39,9 @@ public class HomebankingApplication {
                                       CardRepository cardRepository){
 		return (args) -> {
 
+
             Client client = new Client("Melba","Morel","morel@gmail.com", passwordEncoder.encode("coquito"));
-			clientRepository.save(client);
+            //clientRepository.save(client);
 
             Account account = new Account("VIN001", LocalDate.now(),5000);
             client.addAccount(account);
@@ -113,10 +116,10 @@ public class HomebankingApplication {
 
 
             Client admin = clientRepository.save(new Client("admin", "admin", "admin@admin.com", passwordEncoder.encode("admin")));
+*/
 
 
 
-        };
-	}
+
 
 }
