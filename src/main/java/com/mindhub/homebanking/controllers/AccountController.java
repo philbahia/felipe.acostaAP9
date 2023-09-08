@@ -33,14 +33,14 @@ public class AccountController {
     private ClientService clientService;
     //private ClientRepository clientRepository;
 
-    @RequestMapping("/accounts")
+    @GetMapping("/accounts")
     public List<AccountDTO> getAccounts(){
         return accountService.getAccounts();
     }
 
 //modif
 
-    @RequestMapping("/accounts/{id}")
+    @GetMapping("/accounts/{id}")
     public ResponseEntity<Object> getAccount(@PathVariable Long id, Authentication authentication){
 
         Client client = clientService.findByEmail(authentication.getName());

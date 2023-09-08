@@ -40,12 +40,12 @@ public class TransactionController {
 
 
 
-    @RequestMapping("/transactions")
+    @GetMapping("/transactions")
     public List<TransactionDTO> getTransactions(){
         return transactionService.getTransactions();
     }
 
-    @RequestMapping("/transactions/{id}")
+    @GetMapping("/transactions/{id}")
     public TransactionDTO getTransactionById(@PathVariable Long id){
         return new TransactionDTO(transactionService.findById(id));
     }

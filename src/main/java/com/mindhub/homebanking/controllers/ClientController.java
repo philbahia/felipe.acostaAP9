@@ -45,7 +45,7 @@ public class ClientController {
     }//review
 
 
-    @RequestMapping("/clients/{id}")
+    @GetMapping("/clients/{id}")
     public ResponseEntity<Object> getClientNew(@PathVariable Long id, Authentication authentication){
 
 
@@ -62,12 +62,12 @@ public class ClientController {
     }
 
 
-    @RequestMapping("/clients/current")
+    @GetMapping("/clients/current")
     public ClientDTO getCurrentClient(Authentication authentication){
         return new ClientDTO(clientService.findByEmail(authentication.getName()));
     }
 
-    @RequestMapping(path = "/clients", method = RequestMethod.POST)
+    @PostMapping("/clients")
     public ResponseEntity<Object> register(
             @RequestParam String firstName,
             @RequestParam String lastName,
