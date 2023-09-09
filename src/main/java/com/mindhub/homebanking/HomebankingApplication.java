@@ -29,7 +29,7 @@ public class HomebankingApplication {
 
     }
 
-    /*
+  /*
 	@Bean
 	public CommandLineRunner initData(ClientRepository clientRepository,
                                       AccountRepository accountRepository,
