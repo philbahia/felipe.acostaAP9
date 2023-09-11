@@ -84,13 +84,13 @@
                         <div class="col">
                             <h2 class="display-6 subtitle">Debit Cards</h2>
 
-                         <!--   <div class="btn-group align-items-center" role="group" aria-label="Buttons"> -->
+
                                 <a v-if="clientInfo.cards != null && clientInfo.cards.length < 6" href="create-cards.html"
                                     id="create" class="btn btn-sm btn-success">Create</a>
                                 <a v-if="clientInfo.cards != null && clientInfo.cards.length > 0" href="create-cards.html"
                                     id="eliminate" class="btn btn-sm btn-primary">Eliminate Card </a>
 
-                            <!--</div>-->
+
 
 
                             <div v-if="debitCards.length <= 0"><span class="small">No debit cards</span></div>
@@ -103,6 +103,8 @@
                                     <span class="plastic-card__label">{{ card.type}} {{ card.color }}</span>
                                 </div>
                                 <img class="plastic-card__front-logo plastic-card__logo" src="img/Mindhub-logo.png">
+
+
                                 <p class="plastic-card_numer">{{ card.number}}</p>
                                 <div class="plastic-card__space-60">
                                     <span class="plastic-card__label">card holder</span>
@@ -117,6 +119,9 @@
                                     <p style="font-weight: bold; color: red;">Tarjeta Vencida</p>
                                 </div>
                             </div>
+
+
+                            <i class="bi bi-trash"></i>
 
                             <div
                                 v-bind:class="['plastic-card__back', 'plastic-card__part', card.color.toLowerCase() +'-plastic-card']">
