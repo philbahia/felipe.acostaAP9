@@ -27,7 +27,7 @@ public class WebAuthorization{
                 .antMatchers("/h2-console/**","/web/index.html","/web/img/**","/web/js/**","/web/css/**").permitAll()
                 .antMatchers(HttpMethod.POST,"/api/logout","/api/login").permitAll()
                 .antMatchers(HttpMethod.POST,"/api/clients").permitAll()
-                .antMatchers("https://hbfelipe.onrender.com/*").permitAll()
+                .antMatchers("https://hbfelipe.onrender.com/**").permitAll()
 
                 .antMatchers(HttpMethod.POST,"/web/account.html").hasAuthority("CLIENT")
                 .antMatchers("/web/loan-application.html").hasAuthority("CLIENT")

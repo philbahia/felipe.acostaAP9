@@ -8,6 +8,7 @@ import com.mindhub.homebanking.repositories.CardRepository;
 import com.mindhub.homebanking.repositories.ClientRepository;
 import com.mindhub.homebanking.services.CardService;
 import com.mindhub.homebanking.services.ClientService;
+import com.mindhub.homebanking.utils.CardUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -35,7 +36,7 @@ public class CardController {
     private CardService cardService;
 
     @GetMapping("/clients/current/cards")
-    public ResponseEntity<Object> getCurrentClientCardss(Authentication authentication) {
+    public ResponseEntity<Object> getCurrentClientCards(Authentication authentication) {
         Client client = clientService.findByEmail(authentication.getName());
 
         if (client != null) {
@@ -89,8 +90,13 @@ public class CardController {
 
 
 
-        String numberCard = generateCardNumber();
-        int cvv = generateCvv();
+        //String numberCard = CardUtils.generateCardNumber();
+        String numberCard ;
+        do {
+            numberCard = CardUtils.randomCardNumber();
+        } while (cardService.existsByNumber(numberCard));
+
+        int cvv = CardUtils.generateCvv();
 
 
 
@@ -109,35 +115,9 @@ public class CardController {
 
     }
 
-    public  int generateCvv() {
-        Random random = new Random();
-        return random.nextInt(900) + 100;
-    }
 
-    public  String generateCardNumber(){
-        String cardNumber;
-        // TODO: 31/8/2023 verificar si existe nro en la base
 
-        do {
-            cardNumber = randomCardNumber();
-        } while (cardService.existsByNumber(cardNumber));
 
-        return cardNumber;
-    }
 
-    public  String randomCardNumber() {
-        Random random = new Random();
-        StringBuilder numberCard = new StringBuilder();
 
-        for (int i = 0; i < 16; i++) {
-            int digit = random.nextInt(10);
-            numberCard.append(digit);
-
-            if (i % 4 == 3 && i != 15) {
-                numberCard.append(" ");
-            }
-        }
-
-        return numberCard.toString();
-    }
 }

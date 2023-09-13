@@ -42,7 +42,7 @@ public class ClientController {
     @GetMapping("/clients")
     public List<ClientDTO> getClients() {
         return clientService.getClients();
-    }//review
+    }
 
 
     @GetMapping("/clients/{id}")

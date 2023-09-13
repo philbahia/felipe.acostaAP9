@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta http-equiv="x-ua-compatible" content="IE=edge"/>
+<title>Test results - RepositoriesTest</title>
+<link href="../css/base-style.css" rel="stylesheet" type="text/css"/>
+<link href="../css/style.css" rel="stylesheet" type="text/css"/>
+<script src="../js/report.js" type="text/javascript"></script>
+</head>
+<body>
+<div id="content">
+<h1>RepositoriesTest</h1>
+<div class="breadcrumbs">
+<a href="../index.html">all</a> &gt; 
+<a href="../packages/com.mindhub.homebanking.models.html">com.mindhub.homebanking.models</a> &gt; RepositoriesTest</div>
+<div id="summary">
+<table>
+<tr>
+<td>
+<div class="summaryGroup">
+<table>
+<tr>
+<td>
+<div class="infoBox" id="tests">
+<div class="counter">1</div>
+<p>tests</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="failures">
+<div class="counter">0</div>
+<p>failures</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="ignored">
+<div class="counter">0</div>
+<p>ignored</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="duration">
+<div class="counter">3.361s</div>
+<p>duration</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</td>
+<td>
+<div class="infoBox success" id="successRate">
+<div class="percent">100%</div>
+<p>successful</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div id="tabs">
+<ul class="tabLinks">
+<li>
+<a href="#tab0">Tests</a>
+</li>
+<li>
+<a href="#tab1">Standard output</a>
+</li>
+</ul>
+<div id="tab0" class="tab">
+<h2>Tests</h2>
+<table>
+<thead>
+<tr>
+<th>Test</th>
+<th>Duration</th>
+<th>Result</th>
+</tr>
+</thead>
+<tr>
+<td class="success">existPersonalLoan()</td>
+<td class="success">3.361s</td>
+<td class="success">passed</td>
+</tr>
+</table>
+</div>
+<div id="tab1" class="tab">
+<h2>Standard output</h2>
+<span class="code">
+<pre>23:27:50.381 [Test worker] DEBUG org.springframework.test.context.BootstrapUtils - Instantiating CacheAwareContextLoaderDelegate from class [org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate]
+23:27:50.443 [Test worker] DEBUG org.springframework.test.context.BootstrapUtils - Instantiating BootstrapContext using constructor [public org.springframework.test.context.support.DefaultBootstrapContext(java.lang.Class,org.springframework.test.context.CacheAwareContextLoaderDelegate)]
+23:27:50.571 [Test worker] DEBUG org.springframework.test.context.BootstrapUtils - Instantiating TestContextBootstrapper for test class [com.mindhub.homebanking.models.RepositoriesTest] from class [org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTestContextBootstrapper]
+23:27:50.636 [Test worker] INFO org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTestContextBootstrapper - Neither @ContextConfiguration nor @ContextHierarchy found for test class [com.mindhub.homebanking.models.RepositoriesTest], using SpringBootContextLoader
+23:27:50.655 [Test worker] DEBUG org.springframework.test.context.support.AbstractContextLoader - Did not detect default resource location for test class [com.mindhub.homebanking.models.RepositoriesTest]: class path resource [com/mindhub/homebanking/models/RepositoriesTest-context.xml] does not exist
+23:27:50.657 [Test worker] DEBUG org.springframework.test.context.support.AbstractContextLoader - Did not detect default resource location for test class [com.mindhub.homebanking.models.RepositoriesTest]: class path resource [com/mindhub/homebanking/models/RepositoriesTestContext.groovy] does not exist
+23:27:50.658 [Test worker] INFO org.springframework.test.context.support.AbstractContextLoader - Could not detect default resource locations for test class [com.mindhub.homebanking.models.RepositoriesTest]: no resource found for suffixes {-context.xml, Context.groovy}.
+23:27:50.663 [Test worker] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils - Could not detect default configuration classes for test class [com.mindhub.homebanking.models.RepositoriesTest]: RepositoriesTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+23:27:50.980 [Test worker] DEBUG org.springframework.test.context.support.ActiveProfilesUtils - Could not find an 'annotation declaring class' for annotation type [org.springframework.test.context.ActiveProfiles] and class [com.mindhub.homebanking.models.RepositoriesTest]
+23:27:51.255 [Test worker] DEBUG org.springframework.context.annotation.ClassPathScanningCandidateComponentProvider - Identified candidate component class: file [C:\Users\philb\Documents\MindHub\AP Java Backend\homebanking\build\classes\java\main\com\mindhub\homebanking\HomebankingApplication.class]
+23:27:51.258 [Test worker] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Found @SpringBootConfiguration com.mindhub.homebanking.HomebankingApplication for test class com.mindhub.homebanking.models.RepositoriesTest
+23:27:51.273 [Test worker] DEBUG org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTestContextBootstrapper - @TestExecutionListeners is not present for class [com.mindhub.homebanking.models.RepositoriesTest]: using defaults.
+23:27:51.275 [Test worker] INFO org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTestContextBootstrapper - Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener, org.springframework.boot.test.autoconfigure.webservices.client.MockWebServiceServerTestExecutionListener, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener, org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.event.ApplicationEventsTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener, org.springframework.test.context.event.EventPublishingTestExecutionListener]
+23:27:51.413 [Test worker] INFO org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTestContextBootstrapper - Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@1a2e2935, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@733c423e, org.springframework.test.context.event.ApplicationEventsTestExecutionListener@4b629f13, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener@70925b45, org.springframework.boot.test.autoconfigure.SpringBootDependencyInjectionTestExecutionListener@1b9ea3e3, org.springframework.test.context.support.DirtiesContextTestExecutionListener@aa22f1c, org.springframework.test.context.transaction.TransactionalTestExecutionListener@55e7a35c, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@37cd92d6, org.springframework.test.context.event.EventPublishingTestExecutionListener@5922ae77, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener@4263b080, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener@2af616d3, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener@71f67a79, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener@3deb2326, org.springframework.boot.test.autoconfigure.webservices.client.MockWebServiceServerTestExecutionListener@62d363ab, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener@7889a1ac]
+23:27:51.465 [Test worker] DEBUG org.springframework.test.context.support.AbstractDirtiesContextTestExecutionListener - Before test class: context [DefaultTestContext@52350abb testClass = RepositoriesTest, testInstance = [null], testMethod = [null], testException = [null], mergedContextConfiguration = [MergedContextConfiguration@681aad3b testClass = RepositoriesTest, locations = '{}', classes = '{class com.mindhub.homebanking.HomebankingApplication}', contextInitializerClasses = '[]', activeProfiles = '{}', propertySourceLocations = '{}', propertySourceProperties = '{org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTestContextBootstrapper=true}', contextCustomizers = set[org.springframework.boot.test.autoconfigure.OverrideAutoConfigurationContextCustomizerFactory$DisableAutoConfigurationContextCustomizer@7fc44dec, org.springframework.boot.test.autoconfigure.actuate.metrics.MetricsExportContextCustomizerFactory$DisableMetricExportContextCustomizer@62fad19, org.springframework.boot.test.autoconfigure.filter.TypeExcludeFiltersContextCustomizer@351584c0, org.springframework.boot.test.autoconfigure.properties.PropertyMappingContextCustomizer@c3de0167, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverContextCustomizerFactory$Customizer@58bf8650, [ImportsContextCustomizer@1a6f2363 key = [org.springframework.boot.autoconfigure.cache.CacheAutoConfiguration, org.springframework.boot.autoconfigure.data.jpa.JpaRepositoriesAutoConfiguration, org.springframework.boot.autoconfigure.flyway.FlywayAutoConfiguration, org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration, org.springframework.boot.autoconfigure.jdbc.DataSourceTransactionManagerAutoConfiguration, org.springframework.boot.autoconfigure.jdbc.JdbcTemplateAutoConfiguration, org.springframework.boot.autoconfigure.liquibase.LiquibaseAutoConfiguration, org.springframework.boot.autoconfigure.orm.jpa.HibernateJpaAutoConfiguration, org.springframework.boot.autoconfigure.sql.init.SqlInitializationAutoConfiguration, org.springframework.boot.autoconfigure.transaction.TransactionAutoConfiguration, org.springframework.boot.test.autoconfigure.jdbc.TestDatabaseAutoConfiguration, org.springframework.boot.test.autoconfigure.orm.jpa.TestEntityManagerAutoConfiguration]], org.springframework.boot.test.context.filter.ExcludeFilterContextCustomizer@7e242b4d, org.springframework.boot.test.json.DuplicateJsonObjectContextCustomizerFactory$DuplicateJsonObjectContextCustomizer@1d1f7216, org.springframework.boot.test.mock.mockito.MockitoContextCustomizer@0, org.springframework.boot.test.context.SpringBootTestArgs@1, org.springframework.boot.test.context.SpringBootTestWebEnvironment@0], contextLoader = 'org.springframework.boot.test.context.SpringBootContextLoader', parent = [null]], attributes = map[[empty]]], class annotated with @DirtiesContext [false] with mode [null].
+23:27:51.507 [Test worker] DEBUG org.springframework.test.context.support.DependencyInjectionTestExecutionListener - Performing dependency injection for test context [[DefaultTestContext@52350abb testClass = RepositoriesTest, testInstance = com.mindhub.homebanking.models.RepositoriesTest@5489c777, testMethod = [null], testException = [null], mergedContextConfiguration = [MergedContextConfiguration@681aad3b testClass = RepositoriesTest, locations = '{}', classes = '{class com.mindhub.homebanking.HomebankingApplication}', contextInitializerClasses = '[]', activeProfiles = '{}', propertySourceLocations = '{}', propertySourceProperties = '{org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTestContextBootstrapper=true}', contextCustomizers = set[org.springframework.boot.test.autoconfigure.OverrideAutoConfigurationContextCustomizerFactory$DisableAutoConfigurationContextCustomizer@7fc44dec, org.springframework.boot.test.autoconfigure.actuate.metrics.MetricsExportContextCustomizerFactory$DisableMetricExportContextCustomizer@62fad19, org.springframework.boot.test.autoconfigure.filter.TypeExcludeFiltersContextCustomizer@351584c0, org.springframework.boot.test.autoconfigure.properties.PropertyMappingContextCustomizer@c3de0167, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverContextCustomizerFactory$Customizer@58bf8650, [ImportsContextCustomizer@1a6f2363 key = [org.springframework.boot.autoconfigure.cache.CacheAutoConfiguration, org.springframework.boot.autoconfigure.data.jpa.JpaRepositoriesAutoConfiguration, org.springframework.boot.autoconfigure.flyway.FlywayAutoConfiguration, org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration, org.springframework.boot.autoconfigure.jdbc.DataSourceTransactionManagerAutoConfiguration, org.springframework.boot.autoconfigure.jdbc.JdbcTemplateAutoConfiguration, org.springframework.boot.autoconfigure.liquibase.LiquibaseAutoConfiguration, org.springframework.boot.autoconfigure.orm.jpa.HibernateJpaAutoConfiguration, org.springframework.boot.autoconfigure.sql.init.SqlInitializationAutoConfiguration, org.springframework.boot.autoconfigure.transaction.TransactionAutoConfiguration, org.springframework.boot.test.autoconfigure.jdbc.TestDatabaseAutoConfiguration, org.springframework.boot.test.autoconfigure.orm.jpa.TestEntityManagerAutoConfiguration]], org.springframework.boot.test.context.filter.ExcludeFilterContextCustomizer@7e242b4d, org.springframework.boot.test.json.DuplicateJsonObjectContextCustomizerFactory$DuplicateJsonObjectContextCustomizer@1d1f7216, org.springframework.boot.test.mock.mockito.MockitoContextCustomizer@0, org.springframework.boot.test.context.SpringBootTestArgs@1, org.springframework.boot.test.context.SpringBootTestWebEnvironment@0], contextLoader = 'org.springframework.boot.test.context.SpringBootContextLoader', parent = [null]], attributes = map['org.springframework.test.context.event.ApplicationEventsTestExecutionListener.recordApplicationEvents' -&gt; false]]].
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::               (v2.7.14)
+
+2023-09-12 23:27:53.125  INFO 736 --- [    Test worker] c.m.homebanking.models.RepositoriesTest  : Starting RepositoriesTest using Java 11.0.20.1 on NOTEBOOK-FOA with PID 736 (started by philb in C:\Users\philb\Documents\MindHub\AP Java Backend\homebanking)
+2023-09-12 23:27:53.132  INFO 736 --- [    Test worker] c.m.homebanking.models.RepositoriesTest  : No active profile set, falling back to 1 default profile: &quot;default&quot;
+2023-09-12 23:27:55.099  INFO 736 --- [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-09-12 23:27:55.542  INFO 736 --- [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 414 ms. Found 6 JPA repository interfaces.
+2023-09-12 23:27:58.464  INFO 736 --- [    Test worker] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-09-12 23:27:59.129  INFO 736 --- [    Test worker] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.6.15.Final
+2023-09-12 23:28:00.899  INFO 736 --- [    Test worker] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2023-09-12 23:28:01.795  INFO 736 --- [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2023-09-12 23:28:04.053  INFO 736 --- [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2023-09-12 23:28:04.254  INFO 736 --- [    Test worker] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL9Dialect
+2023-09-12 23:28:21.785  INFO 736 --- [    Test worker] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-09-12 23:28:22.007  INFO 736 --- [    Test worker] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-09-12 23:28:24.489  INFO 736 --- [    Test worker] c.m.homebanking.models.RepositoriesTest  : Started RepositoriesTest in 32.826 seconds (JVM running for 38.033)
+2023-09-12 23:28:24.555  INFO 736 --- [    Test worker] o.s.t.c.transaction.TransactionContext   : Began transaction (1) for test context [DefaultTestContext@52350abb testClass = RepositoriesTest, testInstance = com.mindhub.homebanking.models.RepositoriesTest@5489c777, testMethod = existPersonalLoan@RepositoriesTest, testException = [null], mergedContextConfiguration = [MergedContextConfiguration@681aad3b testClass = RepositoriesTest, locations = '{}', classes = '{class com.mindhub.homebanking.HomebankingApplication}', contextInitializerClasses = '[]', activeProfiles = '{}', propertySourceLocations = '{}', propertySourceProperties = '{org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTestContextBootstrapper=true}', contextCustomizers = set[org.springframework.boot.test.autoconfigure.OverrideAutoConfigurationContextCustomizerFactory$DisableAutoConfigurationContextCustomizer@7fc44dec, org.springframework.boot.test.autoconfigure.actuate.metrics.MetricsExportContextCustomizerFactory$DisableMetricExportContextCustomizer@62fad19, org.springframework.boot.test.autoconfigure.filter.TypeExcludeFiltersContextCustomizer@351584c0, org.springframework.boot.test.autoconfigure.properties.PropertyMappingContextCustomizer@c3de0167, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverContextCustomizerFactory$Customizer@58bf8650, [ImportsContextCustomizer@1a6f2363 key = [org.springframework.boot.autoconfigure.cache.CacheAutoConfiguration, org.springframework.boot.autoconfigure.data.jpa.JpaRepositoriesAutoConfiguration, org.springframework.boot.autoconfigure.flyway.FlywayAutoConfiguration, org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration, org.springframework.boot.autoconfigure.jdbc.DataSourceTransactionManagerAutoConfiguration, org.springframework.boot.autoconfigure.jdbc.JdbcTemplateAutoConfiguration, org.springframework.boot.autoconfigure.liquibase.LiquibaseAutoConfiguration, org.springframework.boot.autoconfigure.orm.jpa.HibernateJpaAutoConfiguration, org.springframework.boot.autoconfigure.sql.init.SqlInitializationAutoConfiguration, org.springframework.boot.autoconfigure.transaction.TransactionAutoConfiguration, org.springframework.boot.test.autoconfigure.jdbc.TestDatabaseAutoConfiguration, org.springframework.boot.test.autoconfigure.orm.jpa.TestEntityManagerAutoConfiguration]], org.springframework.boot.test.context.filter.ExcludeFilterContextCustomizer@7e242b4d, org.springframework.boot.test.json.DuplicateJsonObjectContextCustomizerFactory$DuplicateJsonObjectContextCustomizer@1d1f7216, org.springframework.boot.test.mock.mockito.MockitoContextCustomizer@0, org.springframework.boot.test.context.SpringBootTestArgs@1, org.springframework.boot.test.context.SpringBootTestWebEnvironment@0], contextLoader = 'org.springframework.boot.test.context.SpringBootContextLoader', parent = [null]], attributes = map['org.springframework.test.context.event.ApplicationEventsTestExecutionListener.recordApplicationEvents' -&gt; false]]; transaction manager [org.springframework.orm.jpa.JpaTransactionManager@520ee6b3]; rollback [true]
+Hibernate: select loan0_.id as id1_4_, loan0_.max_amount as max_amou2_4_, loan0_.name as name3_4_ from loan loan0_
+Hibernate: select clientloan0_.loan_id as loan_id5_3_0_, clientloan0_.id as id1_3_0_, clientloan0_.id as id1_3_1_, clientloan0_.amount as amount2_3_1_, clientloan0_.client_id as client_i4_3_1_, clientloan0_.loan_id as loan_id5_3_1_, clientloan0_.payments as payments3_3_1_, client1_.id as id1_2_2_, client1_.email as email2_2_2_, client1_.first_name as first_na3_2_2_, client1_.last_name as last_nam4_2_2_, client1_.password as password5_2_2_ from client_loan clientloan0_ left outer join client client1_ on clientloan0_.client_id=client1_.id where clientloan0_.loan_id=?
+Hibernate: select clientloan0_.loan_id as loan_id5_3_0_, clientloan0_.id as id1_3_0_, clientloan0_.id as id1_3_1_, clientloan0_.amount as amount2_3_1_, clientloan0_.client_id as client_i4_3_1_, clientloan0_.loan_id as loan_id5_3_1_, clientloan0_.payments as payments3_3_1_, client1_.id as id1_2_2_, client1_.email as email2_2_2_, client1_.first_name as first_na3_2_2_, client1_.last_name as last_nam4_2_2_, client1_.password as password5_2_2_ from client_loan clientloan0_ left outer join client client1_ on clientloan0_.client_id=client1_.id where clientloan0_.loan_id=?
+Hibernate: select clientloan0_.loan_id as loan_id5_3_0_, clientloan0_.id as id1_3_0_, clientloan0_.id as id1_3_1_, clientloan0_.amount as amount2_3_1_, clientloan0_.client_id as client_i4_3_1_, clientloan0_.loan_id as loan_id5_3_1_, clientloan0_.payments as payments3_3_1_, client1_.id as id1_2_2_, client1_.email as email2_2_2_, client1_.first_name as first_na3_2_2_, client1_.last_name as last_nam4_2_2_, client1_.password as password5_2_2_ from client_loan clientloan0_ left outer join client client1_ on clientloan0_.client_id=client1_.id where clientloan0_.loan_id=?
+Hibernate: select clientloan0_.loan_id as loan_id5_3_0_, clientloan0_.id as id1_3_0_, clientloan0_.id as id1_3_1_, clientloan0_.amount as amount2_3_1_, clientloan0_.client_id as client_i4_3_1_, clientloan0_.loan_id as loan_id5_3_1_, clientloan0_.payments as payments3_3_1_, client1_.id as id1_2_2_, client1_.email as email2_2_2_, client1_.first_name as first_na3_2_2_, client1_.last_name as last_nam4_2_2_, client1_.password as password5_2_2_ from client_loan clientloan0_ left outer join client client1_ on clientloan0_.client_id=client1_.id where clientloan0_.loan_id=?
+Hibernate: select clientloan0_.loan_id as loan_id5_3_0_, clientloan0_.id as id1_3_0_, clientloan0_.id as id1_3_1_, clientloan0_.amount as amount2_3_1_, clientloan0_.client_id as client_i4_3_1_, clientloan0_.loan_id as loan_id5_3_1_, clientloan0_.payments as payments3_3_1_, client1_.id as id1_2_2_, client1_.email as email2_2_2_, client1_.first_name as first_na3_2_2_, client1_.last_name as last_nam4_2_2_, client1_.password as password5_2_2_ from client_loan clientloan0_ left outer join client client1_ on clientloan0_.client_id=client1_.id where clientloan0_.loan_id=?
+Hibernate: select clientloan0_.loan_id as loan_id5_3_0_, clientloan0_.id as id1_3_0_, clientloan0_.id as id1_3_1_, clientloan0_.amount as amount2_3_1_, clientloan0_.client_id as client_i4_3_1_, clientloan0_.loan_id as loan_id5_3_1_, clientloan0_.payments as payments3_3_1_, client1_.id as id1_2_2_, client1_.email as email2_2_2_, client1_.first_name as first_na3_2_2_, client1_.last_name as last_nam4_2_2_, client1_.password as password5_2_2_ from client_loan clientloan0_ left outer join client client1_ on clientloan0_.client_id=client1_.id where clientloan0_.loan_id=?
+Hibernate: select clientloan0_.loan_id as loan_id5_3_0_, clientloan0_.id as id1_3_0_, clientloan0_.id as id1_3_1_, clientloan0_.amount as amount2_3_1_, clientloan0_.client_id as client_i4_3_1_, clientloan0_.loan_id as loan_id5_3_1_, clientloan0_.payments as payments3_3_1_, client1_.id as id1_2_2_, client1_.email as email2_2_2_, client1_.first_name as first_na3_2_2_, client1_.last_name as last_nam4_2_2_, client1_.password as password5_2_2_ from client_loan clientloan0_ left outer join client client1_ on clientloan0_.client_id=client1_.id where clientloan0_.loan_id=?
+Hibernate: select clientloan0_.client_id as client_i4_3_0_, clientloan0_.id as id1_3_0_, clientloan0_.id as id1_3_1_, clientloan0_.amount as amount2_3_1_, clientloan0_.client_id as client_i4_3_1_, clientloan0_.loan_id as loan_id5_3_1_, clientloan0_.payments as payments3_3_1_, loan1_.id as id1_4_2_, loan1_.max_amount as max_amou2_4_2_, loan1_.name as name3_4_2_ from client_loan clientloan0_ left outer join loan loan1_ on clientloan0_.loan_id=loan1_.id where clientloan0_.client_id=?
+Hibernate: select cards0_.client_id as client_i9_1_0_, cards0_.id as id1_1_0_, cards0_.id as id1_1_1_, cards0_.card_holder as card_hol2_1_1_, cards0_.color as color3_1_1_, cards0_.cvv as cvv4_1_1_, cards0_.from_date as from_dat5_1_1_, cards0_.number as number6_1_1_, cards0_.client_id as client_i9_1_1_, cards0_.thru_date as thru_dat7_1_1_, cards0_.type as type8_1_1_ from card cards0_ where cards0_.client_id=?
+Hibernate: select accounts0_.client_id as client_i5_0_0_, accounts0_.id as id1_0_0_, accounts0_.id as id1_0_1_, accounts0_.balance as balance2_0_1_, accounts0_.creation_date as creation3_0_1_, accounts0_.number as number4_0_1_, accounts0_.client_id as client_i5_0_1_ from account accounts0_ where accounts0_.client_id=?
+Hibernate: select transactio0_.account_id as account_6_6_0_, transactio0_.id as id1_6_0_, transactio0_.id as id1_6_1_, transactio0_.account_id as account_6_6_1_, transactio0_.amount as amount2_6_1_, transactio0_.date as date3_6_1_, transactio0_.description as descript4_6_1_, transactio0_.type as type5_6_1_ from transaction transactio0_ where transactio0_.account_id=?
+Hibernate: select transactio0_.account_id as account_6_6_0_, transactio0_.id as id1_6_0_, transactio0_.id as id1_6_1_, transactio0_.account_id as account_6_6_1_, transactio0_.amount as amount2_6_1_, transactio0_.date as date3_6_1_, transactio0_.description as descript4_6_1_, transactio0_.type as type5_6_1_ from transaction transactio0_ where transactio0_.account_id=?
+Hibernate: select clientloan0_.loan_id as loan_id5_3_0_, clientloan0_.id as id1_3_0_, clientloan0_.id as id1_3_1_, clientloan0_.amount as amount2_3_1_, clientloan0_.client_id as client_i4_3_1_, clientloan0_.loan_id as loan_id5_3_1_, clientloan0_.payments as payments3_3_1_, client1_.id as id1_2_2_, client1_.email as email2_2_2_, client1_.first_name as first_na3_2_2_, client1_.last_name as last_nam4_2_2_, client1_.password as password5_2_2_ from client_loan clientloan0_ left outer join client client1_ on clientloan0_.client_id=client1_.id where clientloan0_.loan_id=?
+Hibernate: select clientloan0_.client_id as client_i4_3_0_, clientloan0_.id as id1_3_0_, clientloan0_.id as id1_3_1_, clientloan0_.amount as amount2_3_1_, clientloan0_.client_id as client_i4_3_1_, clientloan0_.loan_id as loan_id5_3_1_, clientloan0_.payments as payments3_3_1_, loan1_.id as id1_4_2_, loan1_.max_amount as max_amou2_4_2_, loan1_.name as name3_4_2_ from client_loan clientloan0_ left outer join loan loan1_ on clientloan0_.loan_id=loan1_.id where clientloan0_.client_id=?
+Hibernate: select cards0_.client_id as client_i9_1_0_, cards0_.id as id1_1_0_, cards0_.id as id1_1_1_, cards0_.card_holder as card_hol2_1_1_, cards0_.color as color3_1_1_, cards0_.cvv as cvv4_1_1_, cards0_.from_date as from_dat5_1_1_, cards0_.number as number6_1_1_, cards0_.client_id as client_i9_1_1_, cards0_.thru_date as thru_dat7_1_1_, cards0_.type as type8_1_1_ from card cards0_ where cards0_.client_id=?
+Hibernate: select accounts0_.client_id as client_i5_0_0_, accounts0_.id as id1_0_0_, accounts0_.id as id1_0_1_, accounts0_.balance as balance2_0_1_, accounts0_.creation_date as creation3_0_1_, accounts0_.number as number4_0_1_, accounts0_.client_id as client_i5_0_1_ from account accounts0_ where accounts0_.client_id=?
+Hibernate: select transactio0_.account_id as account_6_6_0_, transactio0_.id as id1_6_0_, transactio0_.id as id1_6_1_, transactio0_.account_id as account_6_6_1_, transactio0_.amount as amount2_6_1_, transactio0_.date as date3_6_1_, transactio0_.description as descript4_6_1_, transactio0_.type as type5_6_1_ from transaction transactio0_ where transactio0_.account_id=?
+Hibernate: select transactio0_.account_id as account_6_6_0_, transactio0_.id as id1_6_0_, transactio0_.id as id1_6_1_, transactio0_.account_id as account_6_6_1_, transactio0_.amount as amount2_6_1_, transactio0_.date as date3_6_1_, transactio0_.description as descript4_6_1_, transactio0_.type as type5_6_1_ from transaction transactio0_ where transactio0_.account_id=?
+Hibernate: select clientloan0_.loan_id as loan_id5_3_0_, clientloan0_.id as id1_3_0_, clientloan0_.id as id1_3_1_, clientloan0_.amount as amount2_3_1_, clientloan0_.client_id as client_i4_3_1_, clientloan0_.loan_id as loan_id5_3_1_, clientloan0_.payments as payments3_3_1_, client1_.id as id1_2_2_, client1_.email as email2_2_2_, client1_.first_name as first_na3_2_2_, client1_.last_name as last_nam4_2_2_, client1_.password as password5_2_2_ from client_loan clientloan0_ left outer join client client1_ on clientloan0_.client_id=client1_.id where clientloan0_.loan_id=?
+Hibernate: select clientloan0_.client_id as client_i4_3_0_, clientloan0_.id as id1_3_0_, clientloan0_.id as id1_3_1_, clientloan0_.amount as amount2_3_1_, clientloan0_.client_id as client_i4_3_1_, clientloan0_.loan_id as loan_id5_3_1_, clientloan0_.payments as payments3_3_1_, loan1_.id as id1_4_2_, loan1_.max_amount as max_amou2_4_2_, loan1_.name as name3_4_2_ from client_loan clientloan0_ left outer join loan loan1_ on clientloan0_.loan_id=loan1_.id where clientloan0_.client_id=?
+Hibernate: select cards0_.client_id as client_i9_1_0_, cards0_.id as id1_1_0_, cards0_.id as id1_1_1_, cards0_.card_holder as card_hol2_1_1_, cards0_.color as color3_1_1_, cards0_.cvv as cvv4_1_1_, cards0_.from_date as from_dat5_1_1_, cards0_.number as number6_1_1_, cards0_.client_id as client_i9_1_1_, cards0_.thru_date as thru_dat7_1_1_, cards0_.type as type8_1_1_ from card cards0_ where cards0_.client_id=?
+Hibernate: select accounts0_.client_id as client_i5_0_0_, accounts0_.id as id1_0_0_, accounts0_.id as id1_0_1_, accounts0_.balance as balance2_0_1_, accounts0_.creation_date as creation3_0_1_, accounts0_.number as number4_0_1_, accounts0_.client_id as client_i5_0_1_ from account accounts0_ where accounts0_.client_id=?
+Hibernate: select transactio0_.account_id as account_6_6_0_, transactio0_.id as id1_6_0_, transactio0_.id as id1_6_1_, transactio0_.account_id as account_6_6_1_, transactio0_.amount as amount2_6_1_, transactio0_.date as date3_6_1_, transactio0_.description as descript4_6_1_, transactio0_.type as type5_6_1_ from transaction transactio0_ where transactio0_.account_id=?
+2023-09-12 23:28:27.866  INFO 736 --- [    Test worker] o.s.t.c.transaction.TransactionContext   : Rolled back transaction for test: [DefaultTestContext@52350abb testClass = RepositoriesTest, testInstance = com.mindhub.homebanking.models.RepositoriesTest@5489c777, testMethod = existPersonalLoan@RepositoriesTest, testException = [null], mergedContextConfiguration = [MergedContextConfiguration@681aad3b testClass = RepositoriesTest, locations = '{}', classes = '{class com.mindhub.homebanking.HomebankingApplication}', contextInitializerClasses = '[]', activeProfiles = '{}', propertySourceLocations = '{}', propertySourceProperties = '{org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTestContextBootstrapper=true}', contextCustomizers = set[org.springframework.boot.test.autoconfigure.OverrideAutoConfigurationContextCustomizerFactory$DisableAutoConfigurationContextCustomizer@7fc44dec, org.springframework.boot.test.autoconfigure.actuate.metrics.MetricsExportContextCustomizerFactory$DisableMetricExportContextCustomizer@62fad19, org.springframework.boot.test.autoconfigure.filter.TypeExcludeFiltersContextCustomizer@351584c0, org.springframework.boot.test.autoconfigure.properties.PropertyMappingContextCustomizer@c3de0167, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverContextCustomizerFactory$Customizer@58bf8650, [ImportsContextCustomizer@1a6f2363 key = [org.springframework.boot.autoconfigure.cache.CacheAutoConfiguration, org.springframework.boot.autoconfigure.data.jpa.JpaRepositoriesAutoConfiguration, org.springframework.boot.autoconfigure.flyway.FlywayAutoConfiguration, org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration, org.springframework.boot.autoconfigure.jdbc.DataSourceTransactionManagerAutoConfiguration, org.springframework.boot.autoconfigure.jdbc.JdbcTemplateAutoConfiguration, org.springframework.boot.autoconfigure.liquibase.LiquibaseAutoConfiguration, org.springframework.boot.autoconfigure.orm.jpa.HibernateJpaAutoConfiguration, org.springframework.boot.autoconfigure.sql.init.SqlInitializationAutoConfiguration, org.springframework.boot.autoconfigure.transaction.TransactionAutoConfiguration, org.springframework.boot.test.autoconfigure.jdbc.TestDatabaseAutoConfiguration, org.springframework.boot.test.autoconfigure.orm.jpa.TestEntityManagerAutoConfiguration]], org.springframework.boot.test.context.filter.ExcludeFilterContextCustomizer@7e242b4d, org.springframework.boot.test.json.DuplicateJsonObjectContextCustomizerFactory$DuplicateJsonObjectContextCustomizer@1d1f7216, org.springframework.boot.test.mock.mockito.MockitoContextCustomizer@0, org.springframework.boot.test.context.SpringBootTestArgs@1, org.springframework.boot.test.context.SpringBootTestWebEnvironment@0], contextLoader = 'org.springframework.boot.test.context.SpringBootContextLoader', parent = [null]], attributes = map['org.springframework.test.context.event.ApplicationEventsTestExecutionListener.recordApplicationEvents' -&gt; false]]
+</pre>
+</span>
+</div>
+</div>
+<div id="footer">
+<p>
+<div>
+<label class="hidden" id="label-for-line-wrapping-toggle" for="line-wrapping-toggle">Wrap lines
+<input id="line-wrapping-toggle" type="checkbox" autocomplete="off"/>
+</label>
+</div>Generated by 
+<a href="http://www.gradle.org">Gradle 8.2.1</a> at 12 sep. 2023 23:28:28</p>
+</div>
+</div>
+</body>
+</html>
