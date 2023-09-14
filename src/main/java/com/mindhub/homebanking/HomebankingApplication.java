@@ -24,8 +24,8 @@ public class HomebankingApplication {
         SpringApplication.run(HomebankingApplication.class, args);
 
     }
-/*
-    @Autowired
+
+   /* @Autowired
     private PasswordEncoder passwordEncoder;
 
 

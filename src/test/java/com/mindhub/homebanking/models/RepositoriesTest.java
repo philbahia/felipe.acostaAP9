@@ -19,16 +19,16 @@ import java.util.List;
 public class  RepositoriesTest {
 
     @Autowired
-    LoanRepository loanRepository;
+    private LoanRepository loanRepository;
 
     @Autowired
-    AccountRepository accountRepository;
+    private AccountRepository accountRepository;
     @Autowired
-    ClientRepository clientRepository;
+    private ClientRepository clientRepository;
     @Autowired
-    CardRepository cardRepository;
+    private CardRepository cardRepository;
     @Autowired
-    TransactionRepository transactionRepository;
+    private TransactionRepository transactionRepository;
 
 
     @Test
